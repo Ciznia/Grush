@@ -1,0 +1,9 @@
+# Compiled Files & Build
+build
+*.[oda]
+
+# Coverage
+*.gc??
+
+# Grush
+grush
