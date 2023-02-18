@@ -5,8 +5,7 @@
 ** Destroy/Update/Create Sprite
 */
 
-#include ".h"
-
+#include "sprite.h"
 
 // DESTROY
 
