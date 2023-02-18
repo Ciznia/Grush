@@ -17,7 +17,7 @@
 void start_game(void)
 {
     win_t *window = window_create();
-    img_t *img = img_create(PATH_TO_WALLPAPER);
+    game_t *game = img_create(PATH_TO_WALLPAPER);
     menu_t menu;
     scene_t scene;
 
@@ -33,13 +33,13 @@ void start_game(void)
         }
         while (scene.id == 1) {
             sfRenderWindow_clear(window, sfBlack);
-            img_update(img, window);
+            img_update(game, window);
             handle_global_events(window);
             sfRenderWindow_display(window);
         }
     }
     window_destroy(window);
-    img_destroy(img);
+    img_destroy(game);
     main_menu_destroy(&menu);
 }
 
