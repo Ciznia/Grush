@@ -17,11 +17,11 @@ void main_menu_init(menu_t *menu)
     menu->button_start.txt = sfTexture_createFromFile("assets/spritesheet/red_button.png", NULL);
     menu->button_start.spt = sfSprite_create();
     menu->button_start.scl = (sfVector2f){0.2, 0.2};
-    menu->button_start.pos = (sfVector2f){800, 100};
+    menu->button_start.pos = (sfVector2f){750, 100};
     menu->button_quit.txt = sfTexture_createFromFile("assets/spritesheet/red_button.png", NULL);
     menu->button_quit.spt = sfSprite_create();
     menu->button_quit.scl = (sfVector2f){0.2, 0.2};
-    menu->button_quit.pos = (sfVector2f){800, 500};
+    menu->button_quit.pos = (sfVector2f){750, 500};
 
 
     sfSprite_setTexture(menu->back.spt, menu->back.txt, sfTrue);
