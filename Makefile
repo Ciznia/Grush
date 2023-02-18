@@ -68,6 +68,7 @@ SRC += my_printf.c
 SRC += my_put_llnbr.c
 SRC += my_put_lnbr.c
 SRC += scientific_format.c
+SRC += open_update_destroy_sprite.c
 
 CMD_NOT_FOUND = $(error $(strip $(1)) is required for this rule)
 CHECK_CMD = $(if $(shell command -v $(1)),, $(call CMD_NOT_FOUND, $(1)))
