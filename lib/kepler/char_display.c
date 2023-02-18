@@ -6,8 +6,9 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 int char_display(char c)
 {
-    return write(1, &c, 1);
+    return (int)write(STDOUT, &c, 1);
 }

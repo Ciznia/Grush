@@ -26,14 +26,13 @@ static char **string_split(char const *str)
 
     array = mem_calloc(sizeof(char *), (count_sepa(str) + 2));
     while (true) {
-        if ((str[i] == '\n' && !(str[i + 1] == '\n')) ||
-        str[i] == '\0') {
+        if ((str[i] == '\n' && str[i + 1] != '\n') || str[i]) {
             array[count] = str_copy_at(str, (i - len), i);
             count++;
             len = 0;
-        } else {
+        } else
             len++;
-        } if (str[i] == '\0')
+        if (!str[i])
             break;
         i++;
     }
@@ -42,10 +41,5 @@ static char **string_split(char const *str)
 
 char **str_split_optimized(char const *str)
 {
-    char **array = NULL;
-
-    if (str == NULL)
-        return NULL;
-    array = string_split(str);
-    return array;
+    return (!str) ? NULL : string_split(str);
 }

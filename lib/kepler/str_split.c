@@ -6,10 +6,11 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 static bool is_separator(char c, char const *separators)
 {
-    return (str_index_of(separators, c) != -1);
+    return (str_index_of(separators, c) != W_SENTINEL);
 }
 
 static int count_sepa(char const *str, char const *separators)
@@ -32,13 +33,13 @@ static char **string_split(char const *str, char const *separators)
     array = mem_calloc(sizeof(char *), (count_sepa(str, separators) + 2));
     while (true) {
         if ((is_separator(str[i], separators) &&
-        !is_separator(str[i + 1], separators)) || str[i] == '\0') {
+        !is_separator(str[i + 1], separators)) || str[i]) {
             array[count] = str_copy_at(str, (i - len), i);
             count++;
             len = 0;
         } else {
             len++;
-        } if (str[i] == '\0')
+        } if (!str[i])
             break;
         i++;
     }
@@ -47,10 +48,7 @@ static char **string_split(char const *str, char const *separators)
 
 char **str_split(char const *str, char const *separators)
 {
-    char **array = NULL;
-
-    if (str == NULL || separators == NULL)
+    if (!str || !separators)
         return NULL;
-    array = string_split(str, separators);
-    return array;
+    return string_split(str, separators);
 }

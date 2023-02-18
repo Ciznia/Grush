@@ -10,11 +10,11 @@
 char *str_rev(char *str)
 {
     int i = 0;
-    int lenght = str_len(str);
-    char *temp = mem_calloc((lenght + 1), sizeof(char));
+    int length = str_len(str);
+    char *temp = mem_calloc((length + 1), sizeof(char));
 
-    while (lenght)
-        temp[i++] = str[--lenght];
+    while (length)
+        temp[i++] = str[--length];
     free(str);
     return temp;
 }

@@ -6,27 +6,28 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 int decimal_to_hex(unsigned int nb)
 {
-    char* hexnb = NULL;
-    int basenb = nb;
-    int i = 0;
-    int rst = 0;
-    int count = 0;
+    char* hex_nb = NULL;
+    int base_nb = (int)nb;
+    int i;
+    int rst;
+    int count;
     char *base = "0123456789ABCDEF";
     if (nb == 0)
-        return write(1,"0",1);
-    for (i = 0; basenb != 0; i++)
-        basenb /= 16;
-    hexnb = mem_calloc(sizeof(char), i + 1);
+        return (int)write(STDOUT, "0", 1);
+    for (i = 0; base_nb != 0; i++)
+        base_nb /= 16;
+    hex_nb = mem_calloc(sizeof(char), i + 1);
     for (i = 0; nb != 0; i++) {
-        rst = nb % 16;
-        hexnb[i] = base[rst];
+        rst = (int)(nb % 16);
+        hex_nb[i] = base[rst];
         nb /= 16;
     }
-    hexnb = str_rev(hexnb);
-    count = write(1, hexnb, str_len(hexnb));
-    free(hexnb);
+    hex_nb = str_rev(hex_nb);
+    count = (int)write(1, hex_nb, str_len(hex_nb));
+    free(hex_nb);
     return count;
 }

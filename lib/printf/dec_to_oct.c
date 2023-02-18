@@ -6,27 +6,28 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 int decimal_to_octal(unsigned int nb)
 {
-    char* octalnb;
-    int basenb = nb;
-    int i = 0;
-    int rst = 0;
-    int count = 0;
+    char* octal_nb;
+    int base_nb = (int)nb;
+    int rst;
+    int i;
+    int count;
     char *base = "01234567";
+
     if (nb == 0)
-        return write(1,"0",1);
-    for (i = 0; basenb != 0;i++)
-        basenb /= 8;
-    octalnb = mem_calloc(sizeof(char), i + 1);
+        return (int)write(STDOUT, "0", 1);
+    for (i = 0; base_nb != 0; i++)
+        base_nb /= 8;
+    octal_nb = mem_calloc(sizeof(char), i + 1);
     for (i = 0 ; nb != 0 ; i++) {
-        rst = nb % 8;
-        octalnb[i] = base[rst];
+        rst = (int)(nb % 8);
+        octal_nb[i] = base[rst];
         nb /= 8;
     }
-    octalnb = str_rev(octalnb);
-    count = write(1, octalnb, str_len(octalnb));
-    free(octalnb);
+    count = (int)write(STDOUT, str_rev(octal_nb), str_len(octal_nb));
+    free(octal_nb);
     return count;
 }

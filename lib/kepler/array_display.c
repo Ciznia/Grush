@@ -6,23 +6,20 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
-int array_display(char * const * array, bool linejump)
+int array_display(char * const * array, bool line_jump)
 {
-    if (array == NULL) {
-        write (2, "Char ** not malloced\n",22);
-        return 84;
+    if (!array) {
+        CONST_WRITE(STDERR, "Char ** not malloced\n");
+        return W_SENTINEL;
     }
     for (int i = 0; array[i]; i++) {
-        if (array[i] == NULL) {
-            error_display("array[%i] not malloced\n", i);
-            continue;
-        }
-        write (1,array[i],str_len(array[i]));
-        if (linejump == true)
-            write(1,"\n",1);
+        write(STDOUT, array[i], str_len(array[i]));
+        if (line_jump)
+            CONST_WRITE(STDOUT, "\n");
     }
-    if (linejump == false)
-        write(1, "\n", 1);
+    if (!line_jump)
+        CONST_WRITE(STDOUT, "\n");
     return 0;
 }

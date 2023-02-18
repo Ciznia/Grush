@@ -8,7 +8,7 @@
 int nb_get(char const *str)
 {
     int res = 0;
-    int negcount = 0;
+    int neg_count = 0;
 
     for (int i = 0; str[i]; i++) {
         if (str[i] >= '0' && str[i] <= '9')
@@ -16,9 +16,9 @@ int nb_get(char const *str)
         if (res != 0 && (!(str[i] >= '0' && str[i] <= '9')))
             break;
         if (str[i] == '-')
-            negcount++;
+            neg_count++;
     }
-    if ((negcount % 2) == 1)
-        res *= -1 ;
+    if ((neg_count % 2) == 1)
+        res *= -1;
     return res;
 }

@@ -6,12 +6,14 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 #include <stdio.h>
 
 static char *str_case(char *str)
 {
     int len = str_len(str);
     char *temp = NULL;
+
     str[0] = '0';
     temp = str_copy_at(str, 0, str_len(str));
     str = mem_realloc(str, len, (len + 2));
@@ -25,10 +27,11 @@ static char *str_case(char *str)
 
 static char *check(char *str)
 {
-    int index = 0;
-    while (1) {
+    int index;
+
+    while (true) {
         index = str_index_of(str, ':');
-        if (index == -1)
+        if (index == W_SENTINEL)
             break;
         if (index == 0)
             str = str_case(str);
@@ -36,7 +39,7 @@ static char *check(char *str)
             str[index] = '0';
             str[index - 2] += 1;
         }
-        if (index >= 1 && !(str[index - 1] == '.')) {
+        if (index >= 1 && str[index - 1] != '.') {
             str[index] = '0';
             str[index - 1] += 1;
         }
@@ -48,10 +51,10 @@ static char *decimal(char *str, float nb, size_t pre, int i)
 {
     char *ptr = NULL;
     char *temporary = NULL;
-    int temp = nb * cal_power(10, pre);
+    int temp = (int)(nb * (float)cal_power(10, (int)pre));
 
     ptr = str_get_from_int(temp);
-    temporary = &ptr[i];
+    temporary = ptr + i;
     if (temporary[pre - 1] >= '5')
         temporary[pre - 2] += 1;
     temporary[pre - 1] = '\0';
@@ -70,7 +73,7 @@ static char *entire(float nb, size_t pre)
 {
     char *str = NULL;
     int i = 0;
-    int entire = nb;
+    int entire = (int)nb;
     char *temp = NULL;
 
     for (; (entire / cal_power(10, i)) != 0; i++);
@@ -91,11 +94,9 @@ static char *entire(float nb, size_t pre)
 
 char *str_get_from_float(float nb, int pre)
 {
-    char *str = NULL;
     if (pre < 0) {
         error_display("Precision must be positive\n");
         return NULL;
     }
-    str = entire(nb, (pre + 1));
-    return str;
+    return entire(nb, (pre + 1));
 }
