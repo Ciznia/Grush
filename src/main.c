@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** Grush
+** File description:
+** main
+*/
+
 #include <unistd.h>
 
 #include "w_exit_states.h"

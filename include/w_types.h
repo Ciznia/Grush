@@ -1,9 +1,9 @@
 /*
 ** EPITECH PROJECT, 2023
 ** Grush
-** File Description:
-** W Types
- */
+** File description:
+** w_types
+*/
 
 #ifndef W_TYPES_H_
     #define W_TYPES_H_

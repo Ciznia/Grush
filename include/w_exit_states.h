@@ -1,9 +1,9 @@
 /*
 ** EPITECH PROJECT, 2023
 ** Grush
-** File Description:
-** W Exit States
- */
+** File description:
+** w_exit_states
+*/
 
 #ifndef W_EXIT_STATES_H
     #define W_EXIT_STATES_H
