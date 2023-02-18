@@ -14,6 +14,7 @@ BUILD_DIR := build
 
 VPATH := $(SRC_DIR)
 VPATH += $(SRC_DIR)/base
+VPATH += $(SRC_DIR)/graphics
 VPATH += lib/kepler
 VPATH += lib/printf
 
@@ -29,6 +30,8 @@ LIBFLAGS += -lcsfml-graphics
 LIBFLAGS += -lcsfml-audio
 
 SRC := main.c
+SRC += window_manager.c
+SRC += handle_global_events.c
 SRC += array_display.c
 SRC += array_free.c
 SRC += array_len.c
