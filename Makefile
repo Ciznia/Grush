@@ -14,6 +14,8 @@ BUILD_DIR := build
 
 VPATH := $(SRC_DIR)
 VPATH += $(SRC_DIR)/base
+VPATH += lib/kepler
+VPATH += lib/printf
 
 vpath %.c $(VPATH)
 
@@ -27,6 +29,42 @@ LIBFLAGS += -lcsfml-graphics
 LIBFLAGS += -lcsfml-audio
 
 SRC := main.c
+SRC += array_display.c
+SRC += array_free.c
+SRC += array_len.c
+SRC += cal_power.c
+SRC += char_display.c
+SRC += display.c
+SRC += error_display.c
+SRC += float_display.c
+SRC += mem_realloc.c
+SRC += mem_calloc.c
+SRC += mem_cpy.c
+SRC += mem_set.c
+SRC += nb_display.c
+SRC += nb_get.c
+SRC += str_cmp.c
+SRC += str_concat.c
+SRC += str_copy_at.c
+SRC += str_display.c
+SRC += str_dup.c
+SRC += str_find_str.c
+SRC += str_get_from_float.c
+SRC += str_get_from_int.c
+SRC += str_index_of.c
+SRC += str_len.c
+SRC += str_ncmp.c
+SRC += str_rev.c
+SRC += str_split_optimized.c
+SRC += str_split.c
+SRC += dec_to_bin.c
+SRC += dec_to_hex.c
+SRC += dec_to_oct.c
+SRC += flag_select.c
+SRC += my_printf.c
+SRC += my_put_llnbr.c
+SRC += my_put_lnbr.c
+SRC += scientific_format.c
 
 CMD_NOT_FOUND = $(error $(strip $(1)) is required for this rule)
 CHECK_CMD = $(if $(shell command -v $(1)),, $(call CMD_NOT_FOUND, $(1)))
