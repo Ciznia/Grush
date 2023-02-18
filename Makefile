@@ -7,7 +7,7 @@
 ID = root
 
 CC := gcc
-NAME = my_exec
+NAME = grush
 
 SRC_DIR := src
 BUILD_DIR := build
