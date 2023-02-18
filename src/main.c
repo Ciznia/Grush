@@ -24,7 +24,6 @@ void start_game(void)
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         main_menu_update(window, &menu);
-        img_update(img, window);
         handle_global_events(window);
         sfRenderWindow_display(window);
     }
