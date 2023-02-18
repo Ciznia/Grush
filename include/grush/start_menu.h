@@ -41,9 +41,14 @@ typedef struct menu_s {
     sprite_t button_quit;
 } menu_t;
 
+typedef struct scene_s {
+    int id;
+} scene_t;
+
 typedef sfVector2f vec2f_t;
 
 void main_menu_init(menu_t *menu);
 void main_menu_update(win_t *window, menu_t *menu);
 void main_menu_destroy(menu_t *menu);
+void click_event(win_t *window, scene_t *scene, menu_t *menu);
 #endif /* !GRUSH_START_MENU_H_ */

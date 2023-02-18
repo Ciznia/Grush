@@ -30,7 +30,7 @@ LIBFLAGS += -lcsfml-graphics
 LIBFLAGS += -lcsfml-audio
 
 SRC := main.c
-SRC += menu.c
+SRC += start_menu.c
 SRC += image_manager.c
 SRC += window_manager.c
 SRC += handle_global_events.c
