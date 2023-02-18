@@ -12,20 +12,25 @@
 #include "grush/window.h"
 #include "grush/events.h"
 #include "grush/sprite.h"
+#include "grush/csfml.h"
 
 void start_game(void)
 {
     win_t *window = window_create();
     img_t *img = img_create(PATH_TO_WALLPAPER);
+    menu_t menu;
 
+    main_menu_init(&menu);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
+        main_menu_update(window, &menu);
         img_update(img, window);
         handle_global_events(window);
         sfRenderWindow_display(window);
     }
     window_destroy(window);
     img_destroy(img);
+    main_menu_destroy(&menu);
 }
 
 w_exit_t main(int argc UNUSED, char **argv UNUSED)
