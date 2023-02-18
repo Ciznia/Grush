@@ -4,26 +4,22 @@
 ** File description:
 ** By Arthur M-D
 */
-#include "grush/csfml.h"
-#include "w_types.h"
-#include "grush/window.h"
+#include "grush/start_menu.h"
 
 void main_menu_init(menu_t *menu)
 {
-    menu->back.txt = sfTexture_createFromFile("assets/spritesheet/background.png", NULL);
+    menu->back.txt = sfTexture_createFromFile(BACKGROUND_FILE_PATH, NULL);
     menu->back.spt = sfSprite_create();
-    menu->back.scl = (sfVector2f){4, 4};
-    menu->back.pos = (sfVector2f){0, 0};
-    menu->button_start.txt = sfTexture_createFromFile("assets/spritesheet/red_button_start.png", NULL);
+    menu->back.scl = (vec2f_t){BACKGROUND_SCALE, BACKGROUND_SCALE};
+    menu->back.pos = (vec2f_t){BACKGROUND_POS, BACKGROUND_POS};
+    menu->button_start.txt = sfTexture_createFromFile(BTN_START_PATH, NULL);
     menu->button_start.spt = sfSprite_create();
-    menu->button_start.scl = (sfVector2f){0.2, 0.2};
-    menu->button_start.pos = (sfVector2f){750, 100};
-    menu->button_quit.txt = sfTexture_createFromFile("assets/spritesheet/red_button_quit.png", NULL);
+    menu->button_start.scl = (vec2f_t){BTN_SCALE, BTN_SCALE};
+    menu->button_start.pos = (vec2f_t){BTN_START_X, BTN_START_Y};
+    menu->button_quit.txt = sfTexture_createFromFile(BTN_QUIT_PATH, NULL);
     menu->button_quit.spt = sfSprite_create();
-    menu->button_quit.scl = (sfVector2f){0.2, 0.2};
-    menu->button_quit.pos = (sfVector2f){750, 500};
-
-
+    menu->button_quit.scl = (vec2f_t){BTN_SCALE, BTN_SCALE};
+    menu->button_quit.pos = (vec2f_t){BTN_QUIT_X, BTN_QUIT_Y};
     sfSprite_setTexture(menu->back.spt, menu->back.txt, sfTrue);
     sfSprite_setScale(menu->back.spt, menu->back.scl);
     sfSprite_setPosition(menu->back.spt, menu->back.pos);

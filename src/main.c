@@ -12,7 +12,7 @@
 #include "grush/window.h"
 #include "grush/events.h"
 #include "grush/sprite.h"
-#include "grush/csfml.h"
+#include "grush/start_menu.h"
 
 void start_game(void)
 {
