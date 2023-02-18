@@ -7,13 +7,13 @@
 ID = root
 
 CC := gcc
-NAME = grush
+NAME := grush
 
 SRC_DIR := src
 BUILD_DIR := build
 
 VPATH := $(SRC_DIR)
-VPATH := $(SRC_DIR)/base
+VPATH += $(SRC_DIR)/base
 
 vpath %.c $(VPATH)
 
