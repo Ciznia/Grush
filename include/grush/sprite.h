@@ -12,11 +12,12 @@
     #include <SFML/Graphics.h>
     #include <SFML/Window.h>
 
-    #define PATH_TO_WALLPAPER "assets/spritesheet/fight_pokemon_wallpaper.png"
+    #define PATH_TO_WALLPAPER "assets/spritesheet/battle_background.png"
 
 typedef struct {
     sfTexture *texture;
     sfSprite *sprite;
+    sfVector2f scl;
 } img_t;
 
 img_t *img_create(char *path);

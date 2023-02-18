@@ -33,7 +33,7 @@ void start_game(void)
         }
         while (scene.id == 1) {
             sfRenderWindow_clear(window, sfBlack);
-            
+            img_update(img, window);
             handle_global_events(window);
             sfRenderWindow_display(window);
         }

@@ -13,7 +13,9 @@ img_t *img_create(char *path)
 
     img->texture = sfTexture_createFromFile(path, NULL);
     img->sprite = sfSprite_create();
+    img->scl = (sfVector2f) {2, 2};
     sfSprite_setTexture(img->sprite, img->texture, sfFalse);
+    sfSprite_setScale(img->sprite, img->scl);
     return img;
 }
 
