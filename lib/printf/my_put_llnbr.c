@@ -5,7 +5,6 @@
 ** the put number but for long long int
 */
 
-#include <unistd.h>
 #include "my.h"
 #include "printf.h"
 
@@ -13,9 +12,8 @@ int long_long_display(long long nb)
 {
     static float count = 0;
 
-    if (nb > LONG_MAX) {
+    if (nb > LONG_MAX)
         return 0;
-    }
     if (nb < 0) {
         char_display('-');
         long_long_display(-nb);
@@ -23,9 +21,9 @@ int long_long_display(long long nb)
     } else if (nb > 9) {
         long_long_display(nb / 10);
         long_long_display(nb % 10);
-        count += 0.5;
+        count += 0.5F;
     } else {
-        char_display(nb + '0');
+        char_display((char)(nb + '0'));
         count++;
     }
     return (int)count;

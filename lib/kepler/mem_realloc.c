@@ -14,7 +14,7 @@ void *mem_realloc(void *src, size_t size, size_t new_size)
     if (src == NULL)
         return mem_calloc(1, new_size);
     dest = mem_calloc(1, new_size);
-    if (dest == NULL)
+    if (!dest)
         return NULL;
     mem_cpy(dest, src, size);
     free(src);

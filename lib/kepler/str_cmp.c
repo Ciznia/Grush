@@ -6,15 +6,16 @@
 */
 
 #include <unistd.h>
+#include "w_utils.h"
 
 int str_cmp(char const *s1, char const *s2)
 {
     if (!s1 || !s2) {
-        write(2, "s1 or s2 is NULL\n", 18);
-        return 84;
+        CONST_WRITE(STDERR, "s1 or s2 is NULL\n");
+        return W_SENTINEL;
     }
-    for (int i = 0;(s1[i] != '\0' || s2[i] != '\0'); i++)
+    for (int i = 0; s1[i] || s2[i]; i++)
         if (s1[i] != s2[i])
-            return (s1[i] - s2[i]);
+            return s1[i] - s2[i];
     return 0;
 }

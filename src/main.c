@@ -7,7 +7,7 @@
 #include "SFML/Graphics.h"
 
 #include "w_exit_states.h"
-#include "w_types.h"
+#include "w_utils.h"
 
 #include "grush/window.h"
 #include "grush/events.h"

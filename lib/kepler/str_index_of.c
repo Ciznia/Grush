@@ -6,14 +6,15 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 int str_index_of(char const *str, char to_find)
 {
-    if (str == NULL)
-        return -1;
-    for (int i = 0; str[i] != '\0'; i++) {
+    if (!str)
+        return W_SENTINEL;
+    for (int i = 0; str[i]; i++) {
         if (str[i] == to_find)
             return i;
     }
-    return -1;
+    return W_SENTINEL;
 }

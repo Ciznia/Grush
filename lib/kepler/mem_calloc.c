@@ -7,11 +7,11 @@
 
 #include "my.h"
 
-void *mem_calloc(size_t nmem, size_t size)
+void *mem_calloc(size_t mem, size_t size)
 {
-    void *dest = malloc(nmem * size);
+    void *dest = malloc(mem * size);
 
     if (dest)
-        mem_set(dest, 0, (nmem * size));
+        mem_set(dest, 0, (mem * size));
     return dest;
 }

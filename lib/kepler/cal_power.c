@@ -11,10 +11,8 @@ int cal_power(int nb, int p)
 {
     if (p == 0)
         return 1;
-    if (p < 0) {
+    if (p < 0)
         return 0;
-
-    } else {
+    else
         return (nb * cal_power(nb, (p - 1 )));
-    }
 }

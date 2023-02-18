@@ -8,10 +8,11 @@
 #include <stdarg.h>
 #include "my.h"
 #include "printf.h"
+#include "w_utils.h"
 
 static bool is_flag(char c, char const *flag)
 {
-    return (str_index_of(flag, c) != -1);
+    return (str_index_of(flag, c) != W_SENTINEL);
 }
 
 char *flag_detect(const char *format)
@@ -20,9 +21,9 @@ char *flag_detect(const char *format)
     char *flag = NULL;
 
     for (size_t i = 0; format[i + 1]; i++) {
-        if (!is_flag(format[i], "sdicEbox%")) {
+        if (!is_flag(format[i], "sdicEbox%"))
             len++;
-        } else {
+        else {
             flag = str_copy_at(format, i - len, i + 1);
             break;
         }
@@ -38,13 +39,13 @@ int my_printf(const char *format, ...)
 
     va_start(list, format);
     for (size_t i = 0; format[i]; i++) {
-        if (format[i] == '%' && format[i + 1] != '\0') {
+        if (format[i] == '%' && format[i + 1]) {
             flag = flag_detect(&format[i + 1]);
             i += str_len(flag);
             flag_select(&count, flag, list);
             free(flag);
         } else
-            count += write(STDOUT_FILENO, &format[i], 1);
+            count += (int)write(STDOUT_FILENO, &format[i], 1);
     }
     va_end(list);
     return count;

@@ -39,7 +39,7 @@ void *mem_realloc(void *src, size_t size, size_t new_size);
  * @param size sizeof("element wished")
  * @return an allocated memory zone set to 0 || NULL if error
 */
-void *mem_calloc(size_t nmem, size_t size);
+void *mem_calloc(size_t mem, size_t size);
 
 /**
  * Set an memory zone to an int, bytes per bytes
@@ -203,10 +203,10 @@ int str_cmp(char const *s1, char const *s2);
 /**
  * Display an array.
  * @param array Array to display.
- * @param linejump 1 if you want /n between line of the array, 0 if not
+ * @param line_jump 1 if you want /n between line of the array, 0 if not
  * @return 84 if array is null || empty or 0 is succes.
 */
-int array_display(char * const * array, bool linejump);
+int array_display(char * const * array, bool line_jump);
 
 /**
  * free an array

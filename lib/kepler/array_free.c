@@ -6,24 +6,24 @@
 */
 
 #include "my.h"
+#include "w_utils.h"
 
 int array_free(char **array)
 {
-    size_t size = 0;
-    if (array == NULL) {
-        write (2, "Char ** not malloced\n",22);
-        return 84;
+    size_t size;
+
+    if (!array) {
+        CONST_WRITE(STDOUT, "Char ** not malloced\n");
+        return W_SENTINEL;
     }
     size = array_len((char const **)array);
     for (size_t i = 0; i < size; i++) {
-        if (array[i] == NULL) {
+        if (!array[i]) {
             error_display("array[%i] not malloced\n", i);
             continue;
         }
         free(array[i]);
-        array[i] = NULL;
     }
     free(array);
-    array = NULL;
     return 0;
 }

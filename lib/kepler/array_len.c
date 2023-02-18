@@ -4,21 +4,17 @@
 ** File description:
 ** array_len
 */
-
 #include "my.h"
+#include "w_utils.h"
 
 int array_len(char const **array)
 {
     int i = 0;
 
-    if (array == NULL) {
-        write (2, "Char ** not malloced\n",22);
-        return -1;
+    if (!array) {
+        CONST_WRITE(STDOUT, "Char ** not malloced\n");
+        return W_SENTINEL;
     }
-    for (; array[i]; i++)
-        if (array[i] == NULL) {
-            error_display("array[%i] not malloced\n", i);
-            continue;
-        }
+    for (; array[i]; i++);
     return i;
 }
